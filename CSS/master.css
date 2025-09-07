@@ -55,6 +55,11 @@ body {
 .header {
     background-color: var(--blue-mid);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
 }
 
 .header .container {
@@ -64,12 +69,56 @@ body {
 
 }
 
-.header .container .logo {
+.header .container .logoa .logo {
     width: 150px;
     margin-top: 3px;
-
+    transition: 0.6s;
+    position: relative;
 }
 
+.header .container .logoa:hover img {
+    transform: rotate(180deg);
+}
+
+.header .logoa .social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    position: absolute;
+    margin-right: 5px;
+    background-color: var(--blue-pale);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    min-width: 150px;
+    z-index: 10;
+}
+
+.header .logoa:hover .social-links {
+    display: block;
+}
+
+.header .logoa .social-links li a {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: var(--blue-dark);
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+.header .logoa .social-links li a i {
+    margin-right: 8px;
+}
+
+.header .logoa .social-links li a:hover {
+    background-color: var(--blue-sky);
+    color: white;
+}
+
+.header .logoa ul li:not(:last-child) a {
+    border-bottom: 1px solid var(--blue-light);
+}
 
 .header .links {
     position: relative;
@@ -152,3 +201,93 @@ body {
 }
 
 /* end header  */
+/* start modes and welcoming section   */
+.modes {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.modes .background-blur {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    background-image: url("../images/BIG_ONE.png");
+    /* نفس الصورة */
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px);
+    /* البلور فقط للصورة */
+    z-index: 0;
+}
+
+.modes .content {
+    position: relative;
+    z-index: 1;
+    /* فوق البلور */
+    text-align: center;
+    color: white;
+    padding-top: 150px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Tajawal:wght@400&display=swap');
+
+.modes .content .intro-text h1 {
+    font-family: 'Changa', sans-serif;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+}
+
+.modes .content .intro-text p {
+    font-family: 'Tajawal', sans-serif;
+    color: #E0E0E0;
+    line-height: 1.8;
+}
+
+.modes .modes-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 150px;
+    padding: 20px;
+}
+
+.modes .modes-content .card {
+    background: linear-gradient(160deg, #0d1b2a, #1b263b);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modes .modes-content .card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.modes .modes-content .card h3 {
+    font-family: 'Changa', sans-serif;
+    font-size: 20px;
+    color: #FFD700;
+    margin: 15px 0 10px;
+    text-align: center;
+}
+
+.modes .modes-content .card p {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 15px;
+    color: #E0E0E0;
+    padding: 0 20px 20px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.modes .modes-content .card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(0, 150, 255, 0.5);
+}
+
+/* end modes and welcoming section   */
